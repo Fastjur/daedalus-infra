@@ -1,1 +1,4 @@
 .idea/
+
+# become password file, used when setting up initially and allowing for easier debugging
+becomepasswdfile

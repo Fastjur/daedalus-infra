@@ -1,0 +1,6 @@
+---
+- name: "Add PlexMediaServer repository"
+  apt_repository:
+    repo: deb https://downloads.plex.tv/repo/deb public main
+    state: present
+    filename: plexmediaserver

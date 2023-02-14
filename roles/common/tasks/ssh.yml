@@ -1,0 +1,20 @@
+---
+- name: ensure .ssh directory exists and has correct permissions
+  file:
+    path: "{{ ansible_env.HOME }}/.ssh"
+    state: directory
+    mode: 0700
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+  tags: ssh
+
+- name: update .ssh/authorized_keys
+  vars:
+    ssh_keys:
+      - '{{ lookup("file", "ssh_key_jurriaan") }}'
+  template:
+    src: authorized_keys.j2
+    dest: "{{ ansible_env.HOME }}/.ssh/authorized_keys"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"

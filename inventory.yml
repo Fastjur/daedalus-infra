@@ -1,3 +1,5 @@
-all:
+---
+daedalus:
   hosts:
     daedalus.thuis.den-toonder.nl:
+      ansible_user: 'jurriaan'

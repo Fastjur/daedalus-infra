@@ -1,0 +1,8 @@
+---
+- name: "Setup PlexMedia LVMs"
+  become: true
+  import_tasks: lvm.yml
+
+- name: "Install plexmediaserver"
+  become: true
+  import_tasks: plex.yml

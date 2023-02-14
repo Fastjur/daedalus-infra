@@ -1,0 +1,22 @@
+---
+- hosts: all
+  tasks:
+    - name: "Run common tasks"
+      include_role:
+        name: common
+
+- hosts: daedalus
+  tasks:
+    - name: "Run plex playbook for daedalus"
+      include_role:
+        name: plex
+      vars:
+        required_mounts:
+          - '/media/Media-lv'
+        required_plex_folders:
+          - '/media/Media-lv/PlexMedia/TV Shows'
+          - '/media/Media-lv/PlexMedia/Movies'
+          - '/media/Media-lv/PlexMedia/Prerolls'
+          - '/media/Media-lv/PlexMedia/Downloads'
+          - '/media/Media-lv/PlexMedia/Misc'
+        plex_user: 'plex'
